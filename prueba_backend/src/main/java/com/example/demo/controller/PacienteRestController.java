@@ -14,7 +14,7 @@ import com.example.demo.repository.modelo.Paciente;
 import com.example.demo.service.IPacienteService;
 
 @RestController
-@RequestMapping("/ApiPacientes/pacientes")
+@RequestMapping("/ApiPacientes/V1/pacientes")
 public class PacienteRestController {
 	
 	@Autowired
