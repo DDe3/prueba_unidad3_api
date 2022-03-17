@@ -31,7 +31,7 @@ public class DoctorRestController {
 		return ResponseEntity.ok(doctorService.buscarDoctor(idDoctor));
 	}
 	
-	@GetMapping(path = "/{cedula}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/cedula/{cedula}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Doctor> buscarDoctorPorCedula(@PathVariable("cedula") String cedula) {
 		return ResponseEntity.ok(doctorService.buscarDoctorPorCedula(cedula));
 	}

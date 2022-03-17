@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.repository.ICitaMedicaRepository;
 import com.example.demo.repository.modelo.CitaMedica;
 import com.example.demo.repository.modelo.Doctor;
+import com.example.demo.repository.modelo.Paciente;
 import com.example.demo.to.ActualizarCita;
 import com.example.demo.to.CitaAgendamiento;
 
@@ -59,6 +60,12 @@ public class CitaMedicaServiceImpl implements ICitaMedicaService {
 			 }
 		 });
 		 return citasPendientes;
+	}
+
+	@Override
+	public CitaMedica consultarCitaProxima(String cedula) {
+		Paciente p = pacienteService.buscarPacientePorCedula(cedula);
+		return citaRepository.buscarCitaProxima(p.getId());
 	}
 	
 	

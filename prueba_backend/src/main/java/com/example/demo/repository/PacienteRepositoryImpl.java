@@ -26,7 +26,6 @@ public class PacienteRepositoryImpl implements IPacienteRepository {
 	@Override
 	public void insertarPaciente(Paciente paciente) {
 		em.persist(paciente);
-		
 	}
 	
 	

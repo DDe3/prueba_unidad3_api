@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "cita_medica")
 public class CitaMedica {
@@ -39,10 +41,15 @@ public class CitaMedica {
 	@Column(name="cime_fecha_proxima_cita")
 	private LocalDateTime proximaCita;
 	
-	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "doct_id")
 	private Doctor doctor;
+	
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "paci_id")
+	private Paciente paciente;
 	
 	
 	public Doctor getDoctor() {
@@ -57,10 +64,6 @@ public class CitaMedica {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "paci_id")
-	private Paciente paciente;
-	
 	
 	public CitaMedica() {
 		super();
@@ -125,6 +128,14 @@ public class CitaMedica {
 	public void setProximaCita(LocalDateTime proximaCita) {
 		this.proximaCita = proximaCita;
 	}
+	@Override
+	public String toString() {
+		return "CitaMedica [id=" + id + ", numeroCita=" + numeroCita + ", fechaCita=" + fechaCita + ", valorCita="
+				+ valorCita + ", lugarCita=" + lugarCita + ", diagnostico=" + diagnostico + ", receta=" + receta
+				+ ", proximaCita=" + proximaCita + ", doctor=" + doctor + ", paciente=" + paciente + "]";
+	}
+	
+	
 	
 	
 	

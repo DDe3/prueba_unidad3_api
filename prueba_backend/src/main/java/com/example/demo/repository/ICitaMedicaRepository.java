@@ -10,5 +10,6 @@ public interface ICitaMedicaRepository {
 	CitaMedica buscarCitaPorNumero(Integer numero);
 	void actualizarCita(CitaMedica cita);
 	List<CitaMedica> consultarCitasPendientes(Integer idDoctor);
+	CitaMedica buscarCitaProxima(Integer pacienteId);
 
 }

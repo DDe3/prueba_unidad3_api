@@ -11,4 +11,5 @@ public interface ICitaMedicaService {
 	void agendarCita(CitaAgendamiento citaAgendamiento);
 	void actualizarCita(ActualizarCita actualizarCita, Integer numeroCita);
 	List<CitaMedica> consultarCitasPendientes(String cedulaDoctor);
+	CitaMedica consultarCitaProxima(String cedula);
 }

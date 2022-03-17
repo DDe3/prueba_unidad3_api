@@ -46,4 +46,13 @@ public class CitaMedicaRepositoryImpl implements ICitaMedicaRepository{
 		return mq.getResultList();
 	}
 
+
+	@Override
+	public CitaMedica buscarCitaProxima(Integer pacienteId) {
+		TypedQuery<CitaMedica> mq = em.createQuery("SELECT c FROM CitaMedica c WHERE paciente.id = :pacienteId ORDER BY c.proximaCita", CitaMedica.class);
+		mq.setParameter("pacienteId", pacienteId);
+		List<CitaMedica> citas = mq.getResultList();
+		return citas.get(0);
+	}
+
 }

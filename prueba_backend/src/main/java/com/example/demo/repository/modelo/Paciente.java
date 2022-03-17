@@ -1,6 +1,7 @@
 package com.example.demo.repository.modelo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,7 +30,7 @@ public class Paciente {
 	@Column(name="paci_apellido")
 	private String apellido;
 	@Column(name="paci_fecha_nacimiento")
-	private LocalDate fechaNacimiento;
+	private LocalDateTime fechaNacimiento;
 	@Column(name="paci_codigo_seguro")
 	private String codigoSeguro;
 	@Column(name="paci_estatura")
@@ -43,10 +44,23 @@ public class Paciente {
 	private List<CitaMedica> citas;
 	
 	
+	public List<CitaMedica> getCitas() {
+		return citas;
+	}
+	public void setCitas(List<CitaMedica> citas) {
+		this.citas = citas;
+	}
+	public void insertarCita(CitaMedica cita) {
+		citas.add(cita);
+	}
+	public void removerCita(CitaMedica cita) {
+		citas.remove(cita);
+	}
+	
 	public Paciente() {
 		super();
 	}
-	public Paciente(Integer id, String cedula, String nombre, String apellido, LocalDate fechaNacimiento,
+	public Paciente(Integer id, String cedula, String nombre, String apellido, LocalDateTime fechaNacimiento,
 			String codigoSeguro, Double estatura, Double peso, Character genero) {
 		super();
 		this.id = id;
@@ -83,10 +97,10 @@ public class Paciente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public LocalDate getFechaNacimiento() {
+	public LocalDateTime getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+	public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	public String getCodigoSeguro() {
