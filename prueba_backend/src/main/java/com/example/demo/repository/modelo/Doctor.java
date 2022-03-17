@@ -45,6 +45,12 @@ public class Doctor {
 	
 	
 
+	public List<CitaMedica> getCitas() {
+		return citas;
+	}
+	public void setCitas(List<CitaMedica> citas) {
+		this.citas = citas;
+	}
 	public Doctor() {
 		super();
 	}

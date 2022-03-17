@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.repository.IDoctorRespository;
+import com.example.demo.repository.modelo.CitaMedica;
 import com.example.demo.repository.modelo.Doctor;
 
 @Service
@@ -14,6 +17,8 @@ public class DoctorServiceImpl implements IDoctorService {
 
 	@Override
 	public void insertarDoctor(Doctor doctor) {
+		List<CitaMedica> cm = doctor.getCitas();
+		cm.forEach(c -> c.setDoctor(doctor));
 		doctorRepository.insertarDoctor(doctor);
 		
 	}
