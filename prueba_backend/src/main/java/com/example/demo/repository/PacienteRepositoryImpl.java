@@ -22,6 +22,12 @@ public class PacienteRepositoryImpl implements IPacienteRepository {
 		mq.setParameter("cedula", cedula);
 		return mq.getSingleResult();
 	}
+
+	@Override
+	public void insertarPaciente(Paciente paciente) {
+		em.persist(paciente);
+		
+	}
 	
 	
 }

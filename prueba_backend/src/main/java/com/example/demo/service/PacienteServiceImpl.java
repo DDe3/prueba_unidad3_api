@@ -16,6 +16,13 @@ public class PacienteServiceImpl implements IPacienteService {
 	public Paciente buscarPacientePorCedula(String cedula) {
 		return pacienteRepository.buscarPacientePorCedula(cedula);
 	}
+
+	@Override
+	public void insertarPaciente(Paciente paciente) {
+		pacienteRepository.insertarPaciente(paciente);
+	}
+	
+	
 	
 	
 }
